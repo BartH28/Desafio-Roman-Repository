@@ -1,0 +1,35 @@
+Grupo :
+- Pedro 
+- Henrique 
+- Nathalia
+
+-----------------------------------
+
+Tabelas
+
+Usuarios 
+Projeto (como consulta)
+Tema (associado ao projeto)
+Usuário
+
+-----------------------------------
+
+Usuario {
+idUsuario,
+nome,
+email,
+senha,
+}
+
+Projeto {
+idProjeto,
+nome,
+descrição,
+idTema
+}
+
+Tema {
+idTema,
+nomeTema
+}
+
