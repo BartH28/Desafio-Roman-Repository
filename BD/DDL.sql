@@ -1,3 +1,4 @@
+CREATE DATABASE Roman_g12_t
 
 USE Roman_g12_t
 GO
