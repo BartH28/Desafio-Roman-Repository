@@ -9,7 +9,11 @@ INSERT INTO TEMA (nomeTema)
 VALUES ('Banco de Dados'),('ReactJS'),('React Native'),('Front-End'),('Back-End'),('Design'),('UX/UI');
 GO
 
+TRUNCATE TABLE TEMA
+
 INSERT INTO PROJETO (idTema, idUsuario, nome, descricao)
 VALUES 
-(2,1,'Projeto BD','Projeto visando ensinar todos os conceitos por trás de um banco de dados utilizando o Sql Server'),
-(5,3,'Projeto Cavalo','Projeto visando modelar um cavalo utilizando o emulador do android studio');
+(1,1,'Projeto BD','Projeto visando ensinar todos os conceitos por trás de um banco de dados utilizando o Sql Server'),
+(3,3,'Projeto Cavalo','Projeto visando modelar um cavalo utilizando o emulador do android studio');
+
+DROP TABLE PROJETO

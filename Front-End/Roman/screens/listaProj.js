@@ -7,7 +7,8 @@ import {
   TextInput,
   FlatList,
   View,
-  ScrollView
+  ScrollView,
+  SectionList
 } from 'react-native';
 
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -25,6 +26,7 @@ export default class Projetos extends Component {
 
     buscarProj = async () => {
         const token = await AsyncStorage.getItem('TokenU');
+       
 
         const resp = await api.get('/Projetos',{
             headers: {
@@ -33,7 +35,6 @@ export default class Projetos extends Component {
           }
           );
         this.setState({listaProjetos: resp.data})
-        console.warn(resp.data)
     };
 
     componentDidMount(){
@@ -43,30 +44,42 @@ export default class Projetos extends Component {
 
     render(){
         return(
-        <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.textoP}>Projetos</Text>
-            <Image source={require('../assets/img/menina.png')}
-          style={styles.imgmenina}
-       />
+
+
+         
+    //     <ScrollView
+    //      contentContainerStyle={styles.container}
+    //      >
+    //         <Text style={styles.textoP}>Projetos</Text>
+    //         <Image source={require('../assets/img/menina.png')}
+    //       style={styles.imgmenina}
+    //    />
                 <View >
                     <FlatList
-                        contentContainerStyle={styles.quadrado1}
+                        ListHeaderComponent={
+                            <>
+                            <Text style={styles.textoP}>Projetos</Text>
+                            <Image source={require('../assets/img/menina.png')}
+                            style={styles.imgmenina}/>
+                            </>
+                        }
+                        contentContainerStyle={styles.container}
                         data={this.state.listaProjetos}
                         keyExtractor={item => item.idProjeto}
                         renderItem={this.renderItem}
                     />
 
                 </View>
-        </ScrollView>
+        // </ScrollView>
     )  
     }
 
     renderItem = ({item}) => (
        
      <View style={styles.quadrado}>
-         <Text>{item.nome}</Text>
-         <Text>{item.idTemaNavigation.nomeTema}</Text>
-         <Text>{item.descricao}</Text>
+         <Text style={styles.nomeP}>{item.nome}</Text>
+         <Text style={styles.nomeTema}>{item.idTemaNavigation.nomeTema}</Text>
+         <Text style={styles.descricao}>{item.descricao}</Text>
      </View>
     )
 
@@ -82,7 +95,8 @@ const styles = StyleSheet.create({
     textoP:{
     fontSize:36,
     marginTop:80,
-    marginBottom:40
+    marginBottom:40,
+    marginLeft:30
     },
 
     imgmenina:{
@@ -93,15 +107,30 @@ const styles = StyleSheet.create({
         borderColor:'rgba(39,198,250,100)',
         borderWidth:1,
         width:319,
-        height:150,
+        height:200,
         borderRadius:20,
         alignItems:'center',
         marginBottom:55
         
     },
-    quadrado1:{
-        alignItems:'center'
+    nomeP:{
+        fontSize:18,
+        borderBottomWidth:1,
+        borderBottomColor:"rgba(39,198,250,100)",
+        paddingTop:13,
+        paddingBottom:8,
+    },
+
+    nomeTema:{
+        fontSize:16,
+        paddingTop:20
+    },
+
+    descricao:{
+        width:270,
+        paddingTop:20
     }
+   
 
 
 

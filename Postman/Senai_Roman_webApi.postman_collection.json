@@ -37,6 +37,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Projeto.Cadastrar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},

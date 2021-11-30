@@ -20,12 +20,12 @@ export default function Stack() {
 
       <AuthStack.Navigator
         initialRouteName="Login"
-        // screenOptions={{
-        //   headerShown: false,
-        // }}
+        screenOptions={{
+          headerShown: false,
+        }}
       >
         <AuthStack.Screen name="Login" component={login} />
-        {/* <AuthStack.Screen name="Main" component={main} />  */}
+        <AuthStack.Screen name="Main" component={main} /> 
         <AuthStack.Screen name="Projeto" component={Projetos} /> 
         {/* <AuthStack.Screen name="Camera" component={CameraPerfil} /> */}
       </AuthStack.Navigator>

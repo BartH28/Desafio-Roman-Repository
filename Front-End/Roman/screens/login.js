@@ -34,7 +34,7 @@ export default class App extends Component{
     await AsyncStorage.setItem('TokenU', token);
 
     if (resp.status == 200) {
-      this.props.navigation.navigate('Projeto')
+      this.props.navigation.navigate('Main')
     }
   }
   
